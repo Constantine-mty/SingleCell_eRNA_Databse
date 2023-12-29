@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>eRNA Atlas</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{%  block label %}
+    {% if type =="download" %}
+        <h1>DOWNLOAD</h1>
+    {% elif type == "help" %}
+        <h1>HELP</h1>
+    {% endif %}
+{% endblock %}
+

@@ -9,14 +9,12 @@
     <link rel="icon" href="{{ url_for('image', filename='icon.ico') }}" />
     <!-- bootstrap theme -->
     <link href="{{ url_for('static_by_self', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
+    <!-- navbars -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbars/">
+    <link href="{{ url_for('static_by_self', filename='css/navbars.css') }}" rel="stylesheet" media="screen" />
     <!-- font icon -->
-    <link href="{{ url_for('static_by_self', filename='css/font-awesome.css')}}" rel="stylesheet" />
     <!-- Slider Component -->
-    <link href="{{ url_for('static_by_self', filename='css/bootstrap-slider.min.css')}}" rel="stylesheet" />
     <!-- datatables -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static_by_self', filename='css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static_by_self', filename='css/detailed.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static_by_self', filename='css/jquery.auto-complete.css') }}" />
     <!-- 表格标题和内容文字的位置样式 -->
     <style>
         caption { caption-side: top; width: auto; text-align: left }
@@ -25,32 +23,103 @@
 </head>
 <body>
 
-<h1>BODY</h1>
+<!-- NAVBAR 导航栏  -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" data-bs-theme="dark">
+    <div class="container">
+            <a class="navbar-brand d-flex justify-content-center col-lg-4" href="/">eRNA scAtlas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse col-lg-8">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0 col-lg-8">
+                    <!-- navbar Data 下拉单 -->
+                      <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Data</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{ url_for('download') }}" id="label_download">Browse by Publication</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('help') }}">Browse All</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('download') }}">Browse by CellType</a></li>
+                    </ul>
+                  </li>
+                    <!-- navbar Tools 下拉单 -->
+                      <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Tools</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Visualization</a></li>
+                      <li><a class="dropdown-item" href="#">Analysis Tools</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                    <!-- navbar Resources 下拉单 -->
+                      <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Experimental Resources</a></li>
+                      <li><a class="dropdown-item" href="#">Data Analysis</a></li>
+                      <li><a class="dropdown-item" href="#">Data Collections</a></li>
+                    </ul>
+                  </li>
+                    <!-- navbar Help 下拉单 -->
+                      <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Help</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">User Guide</a></li>
+                      <li><a class="dropdown-item" href="#">Submitter Guide</a></li>
+                      <li><a class="dropdown-item" href="#">About</a></li>
+                    </ul>
+                  </li>
+                    </ul>
+                    <form role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+            </div>
+    </div>
+</nav>
+
+<!-- label可变区域  -->
+{%  block label %} {% endblock %}
+
+<!-- body可变区域  -->
+{%  block body %} {% endblock %}
 
 </body>
+<!---start-footer---->
 <footer>
-    FOOTER
+    <div class="row">
+        <div class="col-lg-6">
+            Southwest Jiaotong University | Life Sciences and Bioengineering
+        </div>
+        <div class="col-lg-6">
+            Copyright © 2023 Guo Lab
+        </div>
+    </div>
 </footer>
 
+
+<!-- JAVASCRIPT -->
 <!-- jquery and popper -->
-<script src="{{ url_for('static_by_self', filename='js/jquery.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/jquery.auto-complete.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/popper.min.js') }}"></script>
 
 <!-- bootstrap -->
 <script src="{{ url_for('static_by_self', filename='js/bootstrap.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/bootstrap-slider.js') }}"></script>
-
-<script src="{{ url_for('static_by_self', filename='js/custom.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/bootstrap.bundle.min.js') }}"></script>
 
 <!-- datatables -->
-<script src="{{ url_for('static_by_self', filename='js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/jszip.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/buttons.html5.min.js') }}"></script>
-<script src="{{ url_for('static_by_self', filename='js/buttons.print.min.js') }}"></script>
+
+<!-- script可变区域  -->
+{%  block script %} {% endblock %}
+<script type="text/javascript">
+    {% if page == "index" %}
+    $('#label_index').addClass("active");
+    {% elif page == "download" %}
+    $('#label_download').addClass("active");
+    {% elif page == "stats" %}
+    $('#label_stats').addClass("active");
+    {% elif page == "help" %}
+    $('#label_help').addClass("active");
+    {% elif page not in ("index", "download", "stats", "help") %}
+    $('#label_browser').addClass("active");
+    {% endif %}
+</script>
 
 
 <style>
@@ -59,7 +128,7 @@
         bottom: 0;
         left: 0;
         padding: 1rem;
-        background-color: #efefef;
+        background-color: #d6dadc;
         text-align: center;
     }
 </style>
