@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签必须放在最前面，任何其他内容都必须跟随其后！ -->
+    <!-- icon -->
+    <link rel="icon" href="{{ url_for('image', filename='icon.ico') }}" />
+    <!-- bootstrap theme -->
+    <link href="{{ url_for('static_by_self', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
+    <!-- font icon -->
+    <link href="{{ url_for('static_by_self', filename='css/font-awesome.css')}}" rel="stylesheet" />
+    <!-- Slider Component -->
+    <link href="{{ url_for('static_by_self', filename='css/bootstrap-slider.min.css')}}" rel="stylesheet" />
+    <!-- datatables -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static_by_self', filename='css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static_by_self', filename='css/detailed.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static_by_self', filename='css/jquery.auto-complete.css') }}" />
+    <!-- 表格标题和内容文字的位置样式 -->
+    <style>
+        caption { caption-side: top; width: auto; text-align: left }
+    </style>
+    <title>eRNA Atlas</title>
+</head>
+<body>
+
+<h1>BODY</h1>
+
+</body>
+<footer>
+    FOOTER
+</footer>
+
+<!-- jquery and popper -->
+<script src="{{ url_for('static_by_self', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/jquery.auto-complete.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/popper.min.js') }}"></script>
+
+<!-- bootstrap -->
+<script src="{{ url_for('static_by_self', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/bootstrap-slider.js') }}"></script>
+
+<script src="{{ url_for('static_by_self', filename='js/custom.js') }}"></script>
+
+<!-- datatables -->
+<script src="{{ url_for('static_by_self', filename='js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/jszip.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/buttons.html5.min.js') }}"></script>
+<script src="{{ url_for('static_by_self', filename='js/buttons.print.min.js') }}"></script>
+
+
+<style>
+    footer {
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        background-color: #efefef;
+        text-align: center;
+    }
+</style>
+</html>
