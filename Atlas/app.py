@@ -89,6 +89,18 @@ def help():
                            page="help")
 
 
+@app.route("/publish")
+def publish():
+    u"""
+    Publish页面
+    :return:
+    """
+    return render_template("blank.html",
+                           type="publish",
+                           page="publish"
+                           )
+
+
 if __name__ == '__main__':
     app.run()
     # app.run(threaded=True, host="127.0.0.1" , port=5000)
