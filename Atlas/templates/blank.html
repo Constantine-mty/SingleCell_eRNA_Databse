@@ -31,7 +31,7 @@
     <script type="text/javascript">
         $('#example').DataTable({
             ajax: {
-                url: '',
+                url: "{{ url_for('static_by_self', filename='ajax.json') }}",
                 dataSrc: ''
             },
             columns: [
