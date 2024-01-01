@@ -1,31 +1,63 @@
 # 从flask包中导入Flask类
 import os
-
-import export
-from flask import Flask
+from flask import redirect
 from flask import render_template
 from flask import url_for
 from flask import send_from_directory
+from flask_wtf import CSRFProtect
+from db.models import *
+from src.api import api
 
 # 使用Flask类创建一个app对象
 # __name__: 代表当前app.py这个模块
 # 1. 出现bug，可以帮助快速定位
 # 2. 对于寻找模版文件，有一个相对路径
 __dir__ = os.path.dirname(os.path.abspath(__file__))
+
 app = Flask(__name__, static_folder=os.path.join(__dir__, 'static'))
 __author__ = "Ma Tianyu"
 
 # 建立app
 app = Flask(__name__, static_folder=os.path.join(__dir__, 'static'))
-
-
 # app.debug = True
 
-# 把 app 写在 flask_study.py 中，必须设置 FLASK_APP=flask_study.py ，如果没有指定FLASK_APP环境变量，flask 运行的时候首先会尝试自动去项目的根目录下的 wsgi.py 文件 或者 app.py 文件里面去找。
-# window
-# set FLASK_APP=app.py
-# linux
-# export FLASK_APP=app.py
+# 指定密钥
+# app.config['SECRET_KEY'] = 'lcbb.swjtu.edu.cn'
+
+# 启用csrf加密保护措施
+csrf = CSRFProtect(app)
+csrf.init_app(app)
+
+# 每次访问之前，首先生成一个url列表，供details页面的datatables使用
+
+app.register_blueprint(api, url_prefix="/api")
+
+
+# 错误处理
+@app.errorhandler(401)
+def no_tissue_eid(error):
+    u"""
+    401是自定义的错误选项，没有组织也没有eid，就要查看表达量的错误
+    """
+    return redirect(url_for('index')), 401
+
+
+# 404
+@app.errorhandler(404)
+def not_response(error):
+    u"""
+    404
+    """
+    return render_template('error.html', error_code=404), 404
+
+
+# 500
+@app.errorhandler(500)
+def internal_error():
+    u"""
+    500
+    """
+    return render_template("error.html"), 500
 
 
 # 创建路由和视图函数的映射
@@ -91,10 +123,6 @@ def help():
 
 @app.route("/publish")
 def publish():
-    u"""
-    Publish页面
-    :return:
-    """
     return render_template("blank.html",
                            type="publish",
                            page="publish"

@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>eRNA Atlas</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+
+{% block body %}
+
+<div class="alert alert-dismissible alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h2>Oh snap! </h2> <br>
+    <strong>{{ error_code }}</strong> <br>
+    <p>Something went wrong or that page doesn’t exist yet. </p>
+
+  </div>
+
+
+{% endblock %}
